@@ -9,10 +9,13 @@
 #import "FZAppDelegate.h"
 #import "FZSearchTabController.h"
 
-@interface FZAppDelegate()
+
+NSString *const FZServerURLPrefix = @"http://freeshiz.net/api";
+
+@interface FZAppDelegate()<CLLocationManagerDelegate>
 
 @property (nonatomic,strong) FZSearchTabController *rootViewController;
-
+@property (nonatomic,strong) CLLocationManager *locationManager;
 @end
 
 @implementation FZAppDelegate
@@ -25,7 +28,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 	self.window.rootViewController = _rootViewController;
+	
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.delegate = self;
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+	self.locationManager.distanceFilter = 10; // or whatever
     [self.window makeKeyAndVisible];
+	[self.locationManager startUpdatingLocation];
     return YES;
 }
 
@@ -54,6 +63,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+	self.currentLocation = [locations lastObject];
 }
 
 @end

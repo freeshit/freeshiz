@@ -34,12 +34,14 @@
 		_mapController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(post:)];
 		_mapNavigationController = [[UINavigationController alloc] initWithRootViewController:_mapController];
 		_mapNavigationController.tabBarItem.title = @"Map";
+		_mapNavigationController.tabBarItem.image = [UIImage imageNamed:@"73-radar"];
 		
 		_listController = [[UITableViewController alloc] initWithNibName:nil bundle:nil];
 		_listController.navigationItem.title = @"freeshiz";
 		_listController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(post:)];
 		_listNavigationController = [[UINavigationController alloc] initWithRootViewController:_listController];
 		_listNavigationController.tabBarItem.title = @"List";
+		_listNavigationController.tabBarItem.image = [UIImage imageNamed:@"162-receipt"];
 		
 		
 		self.viewControllers = [NSArray arrayWithObjects:_mapNavigationController, _listNavigationController, nil];
