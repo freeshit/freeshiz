@@ -45,8 +45,8 @@
 		D95D5E47166AAFBE004CFC30 /* FZSearchMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZSearchMapViewController.xib; sourceTree = "<group>"; };
 		D95D5E4A166AB03B004CFC30 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D95D5E4C166AB043004CFC30 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D95D5E4E166AB0C3004CFC30 /* FZSearchTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FZSearchTabController.h; path = ../FZSearchTabController.h; sourceTree = "<group>"; };
-		D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FZSearchTabController.m; path = ../FZSearchTabController.m; sourceTree = "<group>"; };
+		D95D5E4E166AB0C3004CFC30 /* FZSearchTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchTabController.h; sourceTree = "<group>"; };
+		D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchTabController.m; sourceTree = "<group>"; };
 		D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZPostPictureViewController.h; sourceTree = "<group>"; };
 		D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZPostPictureViewController.m; sourceTree = "<group>"; };
 		D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZPostPictureViewController.xib; sourceTree = "<group>"; };
