@@ -7,14 +7,24 @@
 //
 
 #import "FZAppDelegate.h"
+#import "FZSearchTabController.h"
+
+@interface FZAppDelegate()
+
+@property (nonatomic,strong) FZSearchTabController *rootViewController;
+
+@end
 
 @implementation FZAppDelegate
+@synthesize rootViewController = _rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	_rootViewController = [[FZSearchTabController alloc] initWithNibName:nil bundle:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+	self.window.rootViewController = _rootViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }

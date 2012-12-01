@@ -16,6 +16,14 @@
 		D95D5E38166AADBD004CFC30 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E37166AADBD004CFC30 /* Default.png */; };
 		D95D5E3A166AADBD004CFC30 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E39166AADBD004CFC30 /* Default@2x.png */; };
 		D95D5E3C166AADBD004CFC30 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E3B166AADBD004CFC30 /* Default-568h@2x.png */; };
+		D95D5E48166AAFBE004CFC30 /* FZSearchMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E46166AAFBE004CFC30 /* FZSearchMapViewController.m */; };
+		D95D5E49166AAFBE004CFC30 /* FZSearchMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E47166AAFBE004CFC30 /* FZSearchMapViewController.xib */; };
+		D95D5E4B166AB03B004CFC30 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E4A166AB03B004CFC30 /* MapKit.framework */; };
+		D95D5E4D166AB043004CFC30 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E4C166AB043004CFC30 /* QuartzCore.framework */; };
+		D95D5E50166AB0C3004CFC30 /* FZSearchTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */; };
+		D95D5E56166ABC3B004CFC30 /* FZPostPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */; };
+		D95D5E57166ABC3B004CFC30 /* FZPostPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */; };
+		D95D5E59166AC3DD004CFC30 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E58166AC3DD004CFC30 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,17 @@
 		D95D5E37166AADBD004CFC30 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D95D5E39166AADBD004CFC30 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D95D5E3B166AADBD004CFC30 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D95D5E45166AAFBE004CFC30 /* FZSearchMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchMapViewController.h; sourceTree = "<group>"; };
+		D95D5E46166AAFBE004CFC30 /* FZSearchMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchMapViewController.m; sourceTree = "<group>"; };
+		D95D5E47166AAFBE004CFC30 /* FZSearchMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZSearchMapViewController.xib; sourceTree = "<group>"; };
+		D95D5E4A166AB03B004CFC30 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D95D5E4C166AB043004CFC30 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D95D5E4E166AB0C3004CFC30 /* FZSearchTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FZSearchTabController.h; path = ../FZSearchTabController.h; sourceTree = "<group>"; };
+		D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FZSearchTabController.m; path = ../FZSearchTabController.m; sourceTree = "<group>"; };
+		D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZPostPictureViewController.h; sourceTree = "<group>"; };
+		D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZPostPictureViewController.m; sourceTree = "<group>"; };
+		D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FZPostPictureViewController.xib; sourceTree = "<group>"; };
+		D95D5E58166AC3DD004CFC30 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95D5E59166AC3DD004CFC30 /* AVFoundation.framework in Frameworks */,
+				D95D5E4D166AB043004CFC30 /* QuartzCore.framework in Frameworks */,
+				D95D5E4B166AB03B004CFC30 /* MapKit.framework in Frameworks */,
 				D95D5E26166AADBD004CFC30 /* UIKit.framework in Frameworks */,
 				D95D5E28166AADBD004CFC30 /* Foundation.framework in Frameworks */,
 				D95D5E2A166AADBD004CFC30 /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +90,9 @@
 		D95D5E24166AADBD004CFC30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D95D5E58166AC3DD004CFC30 /* AVFoundation.framework */,
+				D95D5E4C166AB043004CFC30 /* QuartzCore.framework */,
+				D95D5E4A166AB03B004CFC30 /* MapKit.framework */,
 				D95D5E25166AADBD004CFC30 /* UIKit.framework */,
 				D95D5E27166AADBD004CFC30 /* Foundation.framework */,
 				D95D5E29166AADBD004CFC30 /* CoreGraphics.framework */,
@@ -78,9 +103,17 @@
 		D95D5E2B166AADBD004CFC30 /* freeshiz */ = {
 			isa = PBXGroup;
 			children = (
+				D95D5E4E166AB0C3004CFC30 /* FZSearchTabController.h */,
+				D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */,
+				D95D5E45166AAFBE004CFC30 /* FZSearchMapViewController.h */,
+				D95D5E46166AAFBE004CFC30 /* FZSearchMapViewController.m */,
+				D95D5E47166AAFBE004CFC30 /* FZSearchMapViewController.xib */,
 				D95D5E34166AADBD004CFC30 /* FZAppDelegate.h */,
 				D95D5E35166AADBD004CFC30 /* FZAppDelegate.m */,
 				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
+				D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */,
+				D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */,
+				D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */,
 			);
 			path = freeshiz;
 			sourceTree = "<group>";
@@ -155,6 +188,8 @@
 				D95D5E38166AADBD004CFC30 /* Default.png in Resources */,
 				D95D5E3A166AADBD004CFC30 /* Default@2x.png in Resources */,
 				D95D5E3C166AADBD004CFC30 /* Default-568h@2x.png in Resources */,
+				D95D5E49166AAFBE004CFC30 /* FZSearchMapViewController.xib in Resources */,
+				D95D5E57166ABC3B004CFC30 /* FZPostPictureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +202,9 @@
 			files = (
 				D95D5E32166AADBD004CFC30 /* main.m in Sources */,
 				D95D5E36166AADBD004CFC30 /* FZAppDelegate.m in Sources */,
+				D95D5E48166AAFBE004CFC30 /* FZSearchMapViewController.m in Sources */,
+				D95D5E50166AB0C3004CFC30 /* FZSearchTabController.m in Sources */,
+				D95D5E56166ABC3B004CFC30 /* FZPostPictureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
