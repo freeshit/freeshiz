@@ -87,6 +87,7 @@
 		[NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageurl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 			if (data) {
 				cell.imageView.image = [UIImage imageWithData:data];
+				[cell setNeedsLayout];
 			}
 		}];
 	}

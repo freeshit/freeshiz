@@ -11,19 +11,12 @@
 #import <FPPicker/FPPicker.h>
 #import <Firebase/Firebase.h>
 
-@interface FZPostPictureViewController : UIViewController <FPPickerDelegate, NSURLConnectionDelegate> {
+@interface FZPostPictureViewController : UIViewController {
     IBOutlet UIImageView *image;
     IBOutlet UITextView *description;
     NSString *remoteURL;
   
     NSMutableData *receivedData;
 }
-@property (nonatomic, retain) UIImageView *image;
-- (IBAction)pickerModalAction: (id) sender;
--(IBAction)postItem:(id)sender;
--(NSMutableURLRequest*)postItemURLRequest;
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+
 @end
