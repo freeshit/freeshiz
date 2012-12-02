@@ -52,11 +52,12 @@
 
 - (void)post:(id)sender {
 
-	FZPostPictureViewController *_postViewController = [[FZPostPictureViewController alloc] initWithNibName:nil bundle:nil];
-	
+FZPostPictureViewController *_postViewController = [[FZPostPictureViewController alloc] initWithNibName:nil bundle:nil];
+
 	UINavigationController *postNavigationController = [[UINavigationController alloc] initWithRootViewController:_postViewController];
-	
+
 	[self presentViewController:postNavigationController animated:YES completion:NULL];
+
 }
 
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41149096166ACEE300C67007 /* FPPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41149095166ACEE300C67007 /* FPPicker.framework */; };
+		4114909A166ACF5200C67007 /* FPPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 41149098166ACF5200C67007 /* FPPicker.bundle */; };
+		4129107C166AD75800CF4B32 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4129107B166AD75800CF4B32 /* MobileCoreServices.framework */; };
+		4129107F166AD8B900CF4B32 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4129107E166AD8B900CF4B32 /* AssetsLibrary.framework */; };
+		41291085166AF6F700CF4B32 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41291084166AF6F700CF4B32 /* Firebase.framework */; };
 		D95D5E26166AADBD004CFC30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E25166AADBD004CFC30 /* UIKit.framework */; };
 		D95D5E28166AADBD004CFC30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E27166AADBD004CFC30 /* Foundation.framework */; };
 		D95D5E2A166AADBD004CFC30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E29166AADBD004CFC30 /* CoreGraphics.framework */; };
@@ -54,6 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41149095166ACEE300C67007 /* FPPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FPPicker.framework; sourceTree = "<group>"; };
+		41149098166ACF5200C67007 /* FPPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPPicker.bundle; sourceTree = "<group>"; };
+		4129107B166AD75800CF4B32 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4129107E166AD8B900CF4B32 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		41291084166AF6F700CF4B32 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		D95D5E21166AADBD004CFC30 /* freeshiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = freeshiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95D5E25166AADBD004CFC30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D95D5E27166AADBD004CFC30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +122,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4129107F166AD8B900CF4B32 /* AssetsLibrary.framework in Frameworks */,
+				4129107C166AD75800CF4B32 /* MobileCoreServices.framework in Frameworks */,
+				41149096166ACEE300C67007 /* FPPicker.framework in Frameworks */,
 				D95D5E8F166ACA42004CFC30 /* CoreLocation.framework in Frameworks */,
 				D95D5E59166AC3DD004CFC30 /* AVFoundation.framework in Frameworks */,
 				D95D5E4D166AB043004CFC30 /* QuartzCore.framework in Frameworks */,
@@ -119,6 +132,7 @@
 				D95D5E26166AADBD004CFC30 /* UIKit.framework in Frameworks */,
 				D95D5E28166AADBD004CFC30 /* Foundation.framework in Frameworks */,
 				D95D5E2A166AADBD004CFC30 /* CoreGraphics.framework in Frameworks */,
+				41291085166AF6F700CF4B32 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +159,11 @@
 		D95D5E24166AADBD004CFC30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41291084166AF6F700CF4B32 /* Firebase.framework */,
+				4129107E166AD8B900CF4B32 /* AssetsLibrary.framework */,
+				4129107B166AD75800CF4B32 /* MobileCoreServices.framework */,
+				41149095166ACEE300C67007 /* FPPicker.framework */,
+				41149098166ACF5200C67007 /* FPPicker.bundle */,
 				D95D5E8E166ACA42004CFC30 /* CoreLocation.framework */,
 				D95D5E58166AC3DD004CFC30 /* AVFoundation.framework */,
 				D95D5E4C166AB043004CFC30 /* QuartzCore.framework */,
@@ -166,10 +185,10 @@
 				D95D5E47166AAFBE004CFC30 /* FZSearchMapViewController.xib */,
 				D95D5E34166AADBD004CFC30 /* FZAppDelegate.h */,
 				D95D5E35166AADBD004CFC30 /* FZAppDelegate.m */,
-				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
 				D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */,
 				D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */,
 				D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */,
+				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
 			);
 			path = freeshiz;
 			sourceTree = "<group>";
@@ -298,6 +317,7 @@
 				D95D5E8B166AC931004CFC30 /* 179-notepad@2x.png in Resources */,
 				D95D5E8C166AC931004CFC30 /* 180-stickynote.png in Resources */,
 				D95D5E8D166AC931004CFC30 /* 180-stickynote@2x.png in Resources */,
+				4114909A166ACF5200C67007 /* FPPicker.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +403,10 @@
 		D95D5E40166AADBD004CFC30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "freeshiz/freeshiz-Prefix.pch";
 				INFOPLIST_FILE = "freeshiz/freeshiz-Info.plist";
@@ -394,6 +418,10 @@
 		D95D5E41166AADBD004CFC30 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "freeshiz/freeshiz-Prefix.pch";
 				INFOPLIST_FILE = "freeshiz/freeshiz-Info.plist";
@@ -421,6 +449,7 @@
 				D95D5E41166AADBD004CFC30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

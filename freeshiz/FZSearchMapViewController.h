@@ -11,6 +11,6 @@
 
 @interface FZSearchMapViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (retain, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
