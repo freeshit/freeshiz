@@ -74,12 +74,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"FZSearchListViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = nil;//[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
-    
+	
 	NSDictionary *row = _results[indexPath.row];
+	
+	cell.imageView.image = [UIImage imageNamed:@"13-target"];
+    NSString *imageurl = row[@"image_url"];
+	if ([imageurl length] > 0){
+		[NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageurl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+			if (data) {
+				cell.imageView.image = [UIImage imageWithData:data];
+			}
+		}];
+	}
 	
     cell.textLabel.text = row[@"description"];
 	//cell.detailTextLabel.text = row[@"location"];
