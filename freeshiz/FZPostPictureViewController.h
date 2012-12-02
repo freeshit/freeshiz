@@ -17,6 +17,8 @@
     NSString *remoteURL;
   
     NSMutableData *receivedData;
+  
+  BOOL didCancel;
 }
 
 @end

@@ -29,6 +29,7 @@
     if (self) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPost:)];
 		self.currentItem = [[NSMutableDictionary alloc] initWithCapacity:5];
+    didCancel = NO;
     }
     return self;
 }
@@ -37,6 +38,17 @@
 {
 	[super viewDidAppear:animated];
 	//[self pickerModalAction:self];
+  if(image.image == nil)
+  {
+    if(didCancel)
+    {
+      [self.parentViewController dismissViewControllerAnimated:YES completion:NULL];
+    
+    } else
+    {
+      [self pickerModalAction:self];
+    }
+  }
 	
 }
 
@@ -65,7 +77,7 @@
     /*
      * Select and order the sources (Optional) Default is all sources
      */
-    fpController.sourceNames = [[NSArray alloc] initWithObjects: FPSourceCamera, nil];
+    fpController.sourceNames = [[NSArray alloc] initWithObjects: FPSourceCamera, FPSourceCameraRoll, nil];
     
     /*
      * Display it.
@@ -79,20 +91,17 @@
 
 -(IBAction)postItem:(id)sender
 {
-		
-	
 	if(![self isItemComplete])
 	{
-		//display modal
 		return;
 	}
-	
 	FZAppDelegate *delegate = (FZAppDelegate *)[[UIApplication sharedApplication] delegate];
 	NSNumber *latitude = [NSNumber numberWithDouble:delegate.currentLocation.coordinate.latitude];
 	NSNumber *longitude = [NSNumber numberWithDouble:delegate.currentLocation.coordinate.longitude];
 	
 	NSMutableDictionary *item = [@{} mutableCopy];
 	item[@"image_url"] = remoteURL;
+  item[@"label"] = 
 	item[@"description"] = @"wattup";
 	item[@"lat"] = latitude;
 	item[@"lon"] = longitude;
@@ -137,10 +146,6 @@
 
 - (void)FPPickerController:(FPPickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"FILE CHOSEN: %@", info);
-    
-    [info objectForKey:@"FPPickerControllerOriginalImage"];
-	
 	image.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
 	remoteURL = [NSString stringWithFormat:@"%@/convert?dl=false&height=100&width=100&fit=crop", [info objectForKey:@"FPPickerControllerRemoteURL"]];
 	[self dismissViewControllerAnimated:YES completion:NULL];
@@ -149,7 +154,10 @@
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker
 {
     NSLog(@"FP Cancelled Open");
+  didCancel = YES;
 	[self dismissViewControllerAnimated:YES completion:NULL];
+    
+
 }
 
 -(NSMutableURLRequest*)postItemURLRequest:(NSDictionary *)item
@@ -164,16 +172,14 @@
 	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:item
 													   options:NSJSONWritingPrettyPrinted error:nil];
 	
-	
-	
-    NSURL *url = [NSURL URLWithString: sourceURL];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
-    [request setHTTPMethod: @"POST"];
-    [request setHTTPBody: jsonData];
-	
-    //[request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
-	
-    return request;
+  NSURL *url = [NSURL URLWithString: sourceURL];
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
+  [request setHTTPMethod: @"POST"];
+  [request setHTTPBody: jsonData];
+
+  //[request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+
+  return request;
 	
 }
 
