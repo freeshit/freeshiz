@@ -9,6 +9,8 @@
 #import "FZSearchListViewController.h"
 #import "FZSearchListViewCell.h"
 #import "FZDetailViewController.h"
+#import "FZAppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface FZSearchListViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -84,19 +86,26 @@
 	NSDictionary *row = _results[indexPath.row];
 	
 	cell.imageView.image = [UIImage imageNamed:@"13-target"];
-    NSString *imageurl = [NSString stringWithFormat:@"%@/convert?w=%f&h=%f&fit=clip",row[@"image_url"],20.0*self.tableView.contentScaleFactor,20.0*self.tableView.contentScaleFactor];
+    NSString *imageurl = [NSString stringWithFormat:@"%@/convert?w=%f&h=%f&fit=crop",row[@"image_url"],60.0*self.tableView.contentScaleFactor,60*self.tableView.contentScaleFactor];
 	;
 	if ([imageurl length] > 0){
 		[NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageurl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 			if (data) {
-				cell.imageView.image = [UIImage imageWithData:data];
+				cell.imageView.image = [UIImage imageWithData:data scale:self.tableView.contentScaleFactor];
 				[cell setNeedsLayout];
 			}
 		}];
 	}
 	
     cell.textLabel.text = row[@"description"];
-	//cell.detailTextLabel.text = row[@"location"];
+	
+	FZAppDelegate *delegate = (FZAppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	CLLocation *location = [[CLLocation alloc] initWithLatitude:[row[@"lat"] doubleValue] longitude:[row[@"lon"] doubleValue]];
+	CLLocation *location2 = [[CLLocation alloc] initWithLatitude:delegate.currentLocation.coordinate.latitude longitude:delegate.currentLocation.coordinate.longitude];
+	
+	
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%d meters away",(int)[location distanceFromLocation:location2]];
     
     return cell;
 }
@@ -105,44 +114,6 @@
 	return 60;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 #pragma mark - Table view delegate
 

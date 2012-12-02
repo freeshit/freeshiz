@@ -25,7 +25,7 @@
         _details = details;
 		CGFloat width = [[UIScreen mainScreen] bounds].size.width;
 		_backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 200)];
-		NSString *image_url = [NSString stringWithFormat:@"%@/convert?w=%f&h=%d&fit=clip",_details[@"image_url"],width*self.tableView.contentScaleFactor,400];
+		NSString *image_url = [NSString stringWithFormat:@"%@/convert?w=%f&h=%d&fit=crop",_details[@"image_url"],width*self.tableView.contentScaleFactor,200];
 		
 		NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:image_url]];
 		[NSURLConnection sendAsynchronousRequest:urlRequest
@@ -35,6 +35,7 @@
 									   _backgroundImage.image = [UIImage imageWithData:data];
 								   }
 		}];
+		self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
@@ -43,18 +44,23 @@
 {
     [super viewDidLoad];
 	self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
-	CAGradientLayer *gradient = [CAGradientLayer layer];
-	gradient.frame = _backgroundImage.bounds;
-	gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite: 1.0 alpha: 0.0] CGColor], (id)[[UIColor colorWithWhite: 1.0 alpha: 1.0] CGColor], nil];
-	[_backgroundImage.layer insertSublayer:gradient atIndex:0];
-	
+
+	_backgroundImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, 200);
+	_backgroundImage.contentMode = UIViewContentModeScaleAspectFit;
+	//_backgroundImage.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+
 	UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
 	[view addSubview:_backgroundImage];
 	self.tableView.backgroundView = view;
-	self.tableView.backgroundColor = [UIColor whiteColor];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+	
+	// Uncomment the following line to preserve selection between presentations.
+    self.clearsSelectionOnViewWillAppear = NO;
  
+	//UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+	CAGradientLayer *gradient = [CAGradientLayer layer];
+	gradient.frame = CGRectMake(0, 125, self.view.bounds.size.width, 75);
+	gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite: 1.0 alpha: 0.0] CGColor], (id)[[UIColor colorWithWhite: 1.0 alpha: 1.0] CGColor], nil];
+	[_backgroundImage.layer insertSublayer:gradient atIndex:0];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

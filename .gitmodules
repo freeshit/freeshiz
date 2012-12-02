@@ -1,0 +1,3 @@
+[submodule "quickdialog"]
+	path = quickdialog
+	url = git@github.com:freeshit/QuickDialog.git

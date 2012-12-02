@@ -8,6 +8,8 @@
 
 #import "FZPostPictureViewController.h"
 #import "FZAppDelegate.h"
+#import "FZPostDetailViewController.h"
+
 @interface FZPostPictureViewController () <FPPickerDelegate> {
 }
 @property (strong, nonatomic) NSMutableDictionary *currentItem;
@@ -18,9 +20,11 @@
 -(NSMutableURLRequest*)postItemURLRequest;
 @end
 
-@implementation FZPostPictureViewController
+@implementation FZPostPictureViewController {
+	NSURL *_remoteURL;
+}
 
-@synthesize image;
+@synthesize imageView=_imageView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,20 +36,17 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	description.text = @"";
-	//[self pickerModalAction:self];
-	
+
 }
 
-
-
-
-- (IBAction)pickerModalAction: (id) sender {
-    
-    
+- (IBAction)picture:(id)sender{
     /*
      * Create the object
      */
@@ -65,52 +66,34 @@
     /*
      * Select and order the sources (Optional) Default is all sources
      */
-    fpController.sourceNames = [[NSArray alloc] initWithObjects: FPSourceCamera, nil];
+    //fpController.sourceNames = [[NSArray alloc] initWithObjects: FPSourceCamera, nil];
     
     /*
      * Display it.
      */
 	
-  	[self presentViewController:fpController animated:YES completion:NULL];
+  	[self presentViewController:fpController animated:NO completion:NULL];
 	
 	//    [self presentModalViewController:fpController animated:YES];
 }
 
 
--(IBAction)postItem:(id)sender
+-(IBAction)next:(id)sender
 {
-		
-	
-	if(![self isItemComplete])
-	{
-		//display modal
-		return;
+	FZPostDetailViewController *detailController = [[FZPostDetailViewController alloc] init];
+	if ([_remoteURL isKindOfClass:[NSURL class]]) {
+		detailController.remoteImageURL = [_remoteURL absoluteString];
+	} else {
+		detailController.remoteImageURL = [_remoteURL description];
 	}
 	
-	FZAppDelegate *delegate = (FZAppDelegate *)[[UIApplication sharedApplication] delegate];
-	NSNumber *latitude = [NSNumber numberWithDouble:delegate.currentLocation.coordinate.latitude];
-	NSNumber *longitude = [NSNumber numberWithDouble:delegate.currentLocation.coordinate.longitude];
 	
-	NSMutableDictionary *item = [@{} mutableCopy];
-	item[@"image_url"] = remoteURL;
-	item[@"description"] = description.text;
-	item[@"lat"] = latitude;
-	item[@"lon"] = longitude;
-	
-	NSMutableURLRequest *request = [self postItemURLRequest:item];
-	// create the connection with the request
-	// and start loading the data
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
-						   completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error) {
-		
-	}];
-
-	
+	[self.navigationController pushViewController:detailController animated:YES];
 }
 
 -(BOOL)isItemComplete
 {
-	return (image.image != nil);
+	return (_imageView.image != nil);
 }
 - (void)cancelPost:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:NULL];
@@ -119,6 +102,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -142,40 +126,29 @@
     
     //[info objectForKey:@"FPPickerControllerOriginalImage"];
 	
-	image.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
-	remoteURL = [info objectForKey:@"FPPickerControllerRemoteURL"];
+	_imageView.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
+	_remoteURL = [info objectForKey:@"FPPickerControllerRemoteURL"];
 	[self dismissViewControllerAnimated:YES completion:NULL];
+	if (_imageView.image != nil) {
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(next:)];
+	}
+	else {
+		self.navigationItem.rightBarButtonItem = nil;
+	}
 }
 
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker
 {
     //NSLog(@"FP Cancelled Open");
 	[self dismissViewControllerAnimated:YES completion:NULL];
+	if (_imageView.image != nil) {
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(next:)];
+	}
+	else {
+		self.navigationItem.rightBarButtonItem = nil;
+	}
 }
 
--(NSMutableURLRequest*)postItemURLRequest:(NSDictionary *)item
-{
-	//networkStatus update
-	//activity indicator start animation
-	//
-	
-	NSString *sourceURL = @"https://freeshit.firebaseio.com/items.json";
-	
-	//convert object to data
-	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:item
-													   options:NSJSONWritingPrettyPrinted error:nil];
-	
-	
-	
-    NSURL *url = [NSURL URLWithString: sourceURL];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url];
-    [request setHTTPMethod: @"POST"];
-    [request setHTTPBody: jsonData];
-	
-    //[request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
-	
-    return request;
-	
-}
+
 
 @end

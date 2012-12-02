@@ -12,11 +12,9 @@
 #import <Firebase/Firebase.h>
 
 @interface FZPostPictureViewController : UIViewController {
-    IBOutlet UIImageView *image;
-    IBOutlet UITextView *description;
-    NSString *remoteURL;
-  
-    NSMutableData *receivedData;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+- (IBAction)picture:(id)sender;
 @end
