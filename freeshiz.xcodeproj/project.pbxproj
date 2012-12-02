@@ -59,6 +59,9 @@
 		D95D5E8C166AC931004CFC30 /* 180-stickynote.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E72166AC931004CFC30 /* 180-stickynote.png */; };
 		D95D5E8D166AC931004CFC30 /* 180-stickynote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E73166AC931004CFC30 /* 180-stickynote@2x.png */; };
 		D95D5E8F166ACA42004CFC30 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E8E166ACA42004CFC30 /* CoreLocation.framework */; };
+		D985459D166BEA9200882769 /* SinglySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D985459C166BEA9200882769 /* SinglySDK.framework */; };
+		D985459F166BEA9F00882769 /* SinglySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D985459E166BEA9F00882769 /* SinglySDK.bundle */; };
+		D98545A1166BEBF600882769 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98545A0166BEBF600882769 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +127,9 @@
 		D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchListViewController.m; sourceTree = "<group>"; };
 		D95D5E97166ADA05004CFC30 /* FZSearchListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchListViewCell.h; sourceTree = "<group>"; };
 		D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchListViewCell.m; sourceTree = "<group>"; };
+		D985459C166BEA9200882769 /* SinglySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinglySDK.framework; sourceTree = "<group>"; };
+		D985459E166BEA9F00882769 /* SinglySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinglySDK.bundle; sourceTree = "<group>"; };
+		D98545A0166BEBF600882769 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,17 +137,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95D5E4D166AB043004CFC30 /* QuartzCore.framework in Frameworks */,
+				D98545A1166BEBF600882769 /* Accounts.framework in Frameworks */,
 				4129107F166AD8B900CF4B32 /* AssetsLibrary.framework in Frameworks */,
 				4129107C166AD75800CF4B32 /* MobileCoreServices.framework in Frameworks */,
 				41149096166ACEE300C67007 /* FPPicker.framework in Frameworks */,
 				D95D5E8F166ACA42004CFC30 /* CoreLocation.framework in Frameworks */,
 				D95D5E59166AC3DD004CFC30 /* AVFoundation.framework in Frameworks */,
-				D95D5E4D166AB043004CFC30 /* QuartzCore.framework in Frameworks */,
 				D95D5E4B166AB03B004CFC30 /* MapKit.framework in Frameworks */,
 				D95D5E26166AADBD004CFC30 /* UIKit.framework in Frameworks */,
 				D95D5E28166AADBD004CFC30 /* Foundation.framework in Frameworks */,
 				D95D5E2A166AADBD004CFC30 /* CoreGraphics.framework in Frameworks */,
 				41291085166AF6F700CF4B32 /* Firebase.framework in Frameworks */,
+				D985459D166BEA9200882769 /* SinglySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +176,9 @@
 		D95D5E24166AADBD004CFC30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D98545A0166BEBF600882769 /* Accounts.framework */,
+				D985459E166BEA9F00882769 /* SinglySDK.bundle */,
+				D985459C166BEA9200882769 /* SinglySDK.framework */,
 				41291084166AF6F700CF4B32 /* Firebase.framework */,
 				4129107E166AD8B900CF4B32 /* AssetsLibrary.framework */,
 				4129107B166AD75800CF4B32 /* MobileCoreServices.framework */,
@@ -333,6 +344,7 @@
 				D95D5E8C166AC931004CFC30 /* 180-stickynote.png in Resources */,
 				D95D5E8D166AC931004CFC30 /* 180-stickynote@2x.png in Resources */,
 				4114909A166ACF5200C67007 /* FPPicker.bundle in Resources */,
+				D985459F166BEA9F00882769 /* SinglySDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

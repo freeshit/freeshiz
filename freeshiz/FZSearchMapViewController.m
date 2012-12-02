@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 freeshiz. All rights reserved.
 //
 
+#import <SinglySDK/SinglySDK.h>
 #import "FZSearchMapViewController.h"
 
 @interface FZPointAnnotation : MKPointAnnotation
@@ -99,7 +100,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+
+  SinglyService *service = [SinglyService serviceWithIdentifier:@"facebook"];
+  [service requestAuthorizationWithViewController:self];
+  
 	self.mapView.delegate = self;
 	self.mapView.showsUserLocation = YES;
 	

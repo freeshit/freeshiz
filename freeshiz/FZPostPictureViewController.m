@@ -8,6 +8,7 @@
 
 #import "FZPostPictureViewController.h"
 #import "FZAppDelegate.h"
+#import <SinglySDK/SinglySDK.h>
 @interface FZPostPictureViewController () <FPPickerDelegate> {
 }
 @property (strong, nonatomic) NSMutableDictionary *currentItem;

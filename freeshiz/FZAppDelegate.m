@@ -8,7 +8,10 @@
 
 #import "FZAppDelegate.h"
 #import "FZSearchTabController.h"
+#import <SinglySDK/SinglySDK.h>
 
+#define CLIENT_ID @"1deac17a596c4c5db6d9c4c156609d6f"
+#define CLIENT_SECRET @"1deac17a596c4c5db6d9c4c156609d6f"
 
 
 NSString *const FZServerURLPrefix = @"http://freeshit.herokuapp.com/";
@@ -25,6 +28,18 @@ NSString *const FZServerURLPrefix = @"http://freeshit.herokuapp.com/";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0 green:100.0f/255.0f blue:0 alpha:1.0f]];
+
+  SinglySession *session = [SinglySession sharedSession];
+  session.clientID = CLIENT_ID;
+  session.clientSecret = CLIENT_SECRET;
+
+  [session startSessionWithCompletionHandler:^(BOOL ready) {
+    if (ready) {
+        // The session is ready to go!
+    } else {
+        // You will need to auth with a service...
+    }
+  }];
 	
 	_rootViewController = [[FZSearchTabController alloc] initWithNibName:nil bundle:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
