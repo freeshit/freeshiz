@@ -8,7 +8,7 @@
 
 #import "FZPostPictureViewController.h"
 #import "FZAppDelegate.h"
-@interface FZPostPictureViewController () <FPPickerDelegate, NSURLConnectionDelegate>  {
+@interface FZPostPictureViewController () <FPPickerDelegate> {
 }
 @property (strong, nonatomic) NSMutableDictionary *currentItem;
 
@@ -30,6 +30,7 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPost:)];
 		self.currentItem = [[NSMutableDictionary alloc] initWithCapacity:5];
     didCancel = NO;
+
     }
     return self;
 }
@@ -37,6 +38,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
+	description.text = @"";
 	//[self pickerModalAction:self];
   if(image.image == nil)
   {
@@ -101,16 +103,17 @@
 	
 	NSMutableDictionary *item = [@{} mutableCopy];
 	item[@"image_url"] = remoteURL;
-  item[@"label"] = 
-	item[@"description"] = @"wattup";
+  item[@"label"] = @"";
+	item[@"description"] = description.text;
 	item[@"lat"] = latitude;
 	item[@"lon"] = longitude;
 	
 	NSMutableURLRequest *request = [self postItemURLRequest:item];
 	// create the connection with the request
 	// and start loading the data
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-		//TODO handler response
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+						   completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error) {
+		
 	}];
 
 	
@@ -146,15 +149,17 @@
 
 - (void)FPPickerController:(FPPickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+
 	image.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
-	remoteURL = [NSString stringWithFormat:@"%@/convert?dl=false&height=100&width=100&fit=crop", [info objectForKey:@"FPPickerControllerRemoteURL"]];
+	remoteURL = [info objectForKey:@"FPPickerControllerRemoteURL"];
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker
 {
-    NSLog(@"FP Cancelled Open");
+
   didCancel = YES;
+
 	[self dismissViewControllerAnimated:YES completion:NULL];
     
 
