@@ -24,7 +24,9 @@ NSString * const FZSearchResponseNotification = @"FZSearchResponseNotification";
 
 @end
 
-@implementation FZSearchTabController
+@implementation FZSearchTabController {
+	NSTimer *_timer;
+}
 
 @synthesize mapController=_mapController;
 @synthesize mapNavigationController=_mapNavigationController;
@@ -50,7 +52,7 @@ NSString * const FZSearchResponseNotification = @"FZSearchResponseNotification";
 		
 		
 		self.viewControllers = [NSArray arrayWithObjects:_mapNavigationController, _listNavigationController, nil];
-		
+		//_timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -63,11 +65,19 @@ NSString * const FZSearchResponseNotification = @"FZSearchResponseNotification";
 	[self presentViewController:postNavigationController animated:YES completion:NULL];
 }
 
+- (void)tick:(id)sender {
+	[self search:nil];
+}
+
 - (void)search:(NSString *)query {
 	if (!query) {
 		query = @"";
 	}
-	NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/search?query=%@",FZServerURLPrefix,[query stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+	FZAppDelegate *delegate = (FZAppDelegate *)[[UIApplication sharedApplication] delegate];
+	if (!delegate.currentLocation)
+		
+		return;
+	NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/items.json?query=%@&lat=%f&lon&=%f",FZServerURLPrefix,[query stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding], delegate.currentLocation.coordinate.latitude,delegate.currentLocation.coordinate.longitude]];
 	
 	NSURLRequest *urlRequest = [NSURLRequest requestWithURL:requestURL];
 	[NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -85,12 +95,15 @@ NSString * const FZSearchResponseNotification = @"FZSearchResponseNotification";
 			return;
 		}
 		
-		[[NSNotificationCenter defaultCenter] postNotificationName:FZSearchResponseNotification object:self userInfo:@{@"results":queryData}];
-		
-		
-		
+		[[NSNotificationCenter defaultCenter] postNotificationName:FZSearchResponseNotification object:self userInfo:@{@"results":queryData,@"query":query}];
+				
 	}];
 	
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	[self search:nil];
 }
 
 

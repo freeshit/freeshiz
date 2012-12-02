@@ -81,8 +81,8 @@
     
 	NSDictionary *row = _results[indexPath.row];
 	
-    cell.textLabel.text = row[@"title"];
-	cell.detailTextLabel.text = row[@"location"];
+    cell.textLabel.text = row[@"description"];
+	//cell.detailTextLabel.text = row[@"location"];
     
     return cell;
 }

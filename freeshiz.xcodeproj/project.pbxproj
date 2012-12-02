@@ -165,6 +165,7 @@
 		D95D5E2B166AADBD004CFC30 /* freeshiz */ = {
 			isa = PBXGroup;
 			children = (
+				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
 				D95D5E4E166AB0C3004CFC30 /* FZSearchTabController.h */,
 				D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */,
 				D95D5E45166AAFBE004CFC30 /* FZSearchMapViewController.h */,
@@ -172,7 +173,6 @@
 				D95D5E47166AAFBE004CFC30 /* FZSearchMapViewController.xib */,
 				D95D5E34166AADBD004CFC30 /* FZAppDelegate.h */,
 				D95D5E35166AADBD004CFC30 /* FZAppDelegate.m */,
-				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
 				D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */,
 				D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */,
 				D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */,

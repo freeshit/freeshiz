@@ -11,7 +11,7 @@
 
 
 
-NSString *const FZServerURLPrefix = @"http://freeshiz.net/api";
+NSString *const FZServerURLPrefix = @"http://freeshit.herokuapp.com/";
 
 @interface FZAppDelegate()<CLLocationManagerDelegate>
 
