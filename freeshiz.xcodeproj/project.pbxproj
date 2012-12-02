@@ -51,6 +51,8 @@
 		D95D5E8C166AC931004CFC30 /* 180-stickynote.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E72166AC931004CFC30 /* 180-stickynote.png */; };
 		D95D5E8D166AC931004CFC30 /* 180-stickynote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D5E73166AC931004CFC30 /* 180-stickynote@2x.png */; };
 		D95D5E8F166ACA42004CFC30 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E8E166ACA42004CFC30 /* CoreLocation.framework */; };
+		D95D5E93166AD3C5004CFC30 /* FZSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */; };
+		D95D5E99166ADA05004CFC30 /* FZSearchListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,10 @@
 		D95D5E72166AC931004CFC30 /* 180-stickynote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "180-stickynote.png"; sourceTree = "<group>"; };
 		D95D5E73166AC931004CFC30 /* 180-stickynote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "180-stickynote@2x.png"; sourceTree = "<group>"; };
 		D95D5E8E166ACA42004CFC30 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D95D5E90166AD3C4004CFC30 /* FZSearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchListViewController.h; sourceTree = "<group>"; };
+		D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchListViewController.m; sourceTree = "<group>"; };
+		D95D5E97166ADA05004CFC30 /* FZSearchListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchListViewCell.h; sourceTree = "<group>"; };
+		D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchListViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,10 @@
 				D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */,
 				D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */,
 				D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */,
+				D95D5E90166AD3C4004CFC30 /* FZSearchListViewController.h */,
+				D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */,
+				D95D5E97166ADA05004CFC30 /* FZSearchListViewCell.h */,
+				D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */,
 			);
 			path = freeshiz;
 			sourceTree = "<group>";
@@ -313,6 +323,8 @@
 				D95D5E48166AAFBE004CFC30 /* FZSearchMapViewController.m in Sources */,
 				D95D5E50166AB0C3004CFC30 /* FZSearchTabController.m in Sources */,
 				D95D5E56166ABC3B004CFC30 /* FZPostPictureViewController.m in Sources */,
+				D95D5E93166AD3C5004CFC30 /* FZSearchListViewController.m in Sources */,
+				D95D5E99166ADA05004CFC30 /* FZSearchListViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

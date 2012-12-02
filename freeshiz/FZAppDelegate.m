@@ -10,6 +10,7 @@
 #import "FZSearchTabController.h"
 
 
+
 NSString *const FZServerURLPrefix = @"http://freeshiz.net/api";
 
 @interface FZAppDelegate()<CLLocationManagerDelegate>
