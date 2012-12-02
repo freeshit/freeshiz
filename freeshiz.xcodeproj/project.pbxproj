@@ -14,6 +14,7 @@
 		41291085166AF6F700CF4B32 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41291084166AF6F700CF4B32 /* Firebase.framework */; };
 		4129108A166B058B00CF4B32 /* FZSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */; };
 		4129108B166B058B00CF4B32 /* FZSearchListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */; };
+		D9580C53166B315B0093017C /* FZDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9580C52166B315B0093017C /* FZDetailViewController.m */; };
 		D95D5E26166AADBD004CFC30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E25166AADBD004CFC30 /* UIKit.framework */; };
 		D95D5E28166AADBD004CFC30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E27166AADBD004CFC30 /* Foundation.framework */; };
 		D95D5E2A166AADBD004CFC30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E29166AADBD004CFC30 /* CoreGraphics.framework */; };
@@ -66,6 +67,8 @@
 		4129107B166AD75800CF4B32 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4129107E166AD8B900CF4B32 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		41291084166AF6F700CF4B32 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		D9580C51166B315B0093017C /* FZDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZDetailViewController.h; sourceTree = "<group>"; };
+		D9580C52166B315B0093017C /* FZDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZDetailViewController.m; sourceTree = "<group>"; };
 		D95D5E21166AADBD004CFC30 /* freeshiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = freeshiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95D5E25166AADBD004CFC30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D95D5E27166AADBD004CFC30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,11 +198,12 @@
 				D95D5E53166ABC3B004CFC30 /* FZPostPictureViewController.h */,
 				D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */,
 				D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */,
-				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
 				D95D5E90166AD3C4004CFC30 /* FZSearchListViewController.h */,
 				D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */,
 				D95D5E97166ADA05004CFC30 /* FZSearchListViewCell.h */,
 				D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */,
+				D9580C51166B315B0093017C /* FZDetailViewController.h */,
+				D9580C52166B315B0093017C /* FZDetailViewController.m */,
 			);
 			path = freeshiz;
 			sourceTree = "<group>";
@@ -346,6 +350,7 @@
 				D95D5E48166AAFBE004CFC30 /* FZSearchMapViewController.m in Sources */,
 				D95D5E50166AB0C3004CFC30 /* FZSearchTabController.m in Sources */,
 				D95D5E56166ABC3B004CFC30 /* FZPostPictureViewController.m in Sources */,
+				D9580C53166B315B0093017C /* FZDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

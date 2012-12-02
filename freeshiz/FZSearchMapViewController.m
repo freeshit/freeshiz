@@ -45,6 +45,11 @@
 	
 	if ([_results count] >0) {
 		NSMutableArray *annotations = [NSMutableArray arrayWithCapacity:[_results count]];
+		
+		//work around temporary API change over
+		if ([_results isKindOfClass:[NSDictionary class]]){
+			_results = [(NSDictionary *)_results allValues];
+		}
 		for (NSDictionary *row in _results) {
 			FZPointAnnotation *point = [[FZPointAnnotation alloc] init];
 			point.coordinate = CLLocationCoordinate2DMake([row[@"lat"] doubleValue], [row[@"lon"] doubleValue]);
@@ -67,7 +72,7 @@
 		if (!pin) {
 			pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
 		}
-		//pin.pinColor = MKPinAnnotationColorGreen;
+		pin.pinColor = MKPinAnnotationColorGreen;
 		
 		
 		UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];

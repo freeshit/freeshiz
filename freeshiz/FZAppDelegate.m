@@ -24,6 +24,8 @@ NSString *const FZServerURLPrefix = @"http://freeshit.herokuapp.com/";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0 green:100.0f/255.0f blue:0 alpha:1.0f]];
+	
 	_rootViewController = [[FZSearchTabController alloc] initWithNibName:nil bundle:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

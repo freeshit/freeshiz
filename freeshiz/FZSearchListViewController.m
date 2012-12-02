@@ -8,6 +8,7 @@
 
 #import "FZSearchListViewController.h"
 #import "FZSearchListViewCell.h"
+#import "FZDetailViewController.h"
 
 @interface FZSearchListViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -23,10 +24,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-		_results = @[
-			@{@"title" : @"test", @"location":@"somewhere"},
-			@{@"title" : @"test 2", @"location":@"somewhere else"},
-		];
+		_results = @[];
 		[[NSNotificationCenter defaultCenter] addObserverForName:FZSearchResponseNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
 			_results = note.userInfo[@"results"];
 			[self.tableView reloadData];
@@ -43,10 +41,10 @@
     [super viewDidLoad];
 	self.tableView.tableHeaderView = _searchBar;
 	
-
+	
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -79,10 +77,15 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
 	
+	if ([_results isKindOfClass:[NSDictionary class]]){
+		_results = [(NSDictionary *)_results allValues];
+	}
+	
 	NSDictionary *row = _results[indexPath.row];
 	
 	cell.imageView.image = [UIImage imageNamed:@"13-target"];
-    NSString *imageurl = row[@"image_url"];
+    NSString *imageurl = [NSString stringWithFormat:@"%@/convert?w=%f&h=%f&fit=clip",row[@"image_url"],20.0*self.tableView.contentScaleFactor,20.0*self.tableView.contentScaleFactor];
+	;
 	if ([imageurl length] > 0){
 		[NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageurl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 			if (data) {
@@ -103,55 +106,53 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+	NSDictionary *detials = _results[indexPath.row];
+	FZDetailViewController *detailViewController = [[FZDetailViewController alloc] initWithDetails:detials];
+	// ...
+	// Pass the selected object to the new view controller.
+	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end

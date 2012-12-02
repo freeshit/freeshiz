@@ -8,7 +8,7 @@
 
 #import "FZPostPictureViewController.h"
 #import "FZAppDelegate.h"
-@interface FZPostPictureViewController () <FPPickerDelegate, NSURLConnectionDelegate>  {
+@interface FZPostPictureViewController () <FPPickerDelegate> {
 }
 @property (strong, nonatomic) NSMutableDictionary *currentItem;
 
@@ -28,7 +28,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPost:)];
-		self.currentItem = [[NSMutableDictionary alloc] initWithCapacity:5];
     }
     return self;
 }
@@ -36,6 +35,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
+	description.text = @"";
 	//[self pickerModalAction:self];
 	
 }
@@ -93,15 +93,16 @@
 	
 	NSMutableDictionary *item = [@{} mutableCopy];
 	item[@"image_url"] = remoteURL;
-	item[@"description"] = @"wattup";
+	item[@"description"] = description.text;
 	item[@"lat"] = latitude;
 	item[@"lon"] = longitude;
 	
 	NSMutableURLRequest *request = [self postItemURLRequest:item];
 	// create the connection with the request
 	// and start loading the data
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-		//TODO handler response
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+						   completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error) {
+		
 	}];
 
 	
@@ -137,18 +138,18 @@
 
 - (void)FPPickerController:(FPPickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"FILE CHOSEN: %@", info);
+    //NSLog(@"FILE CHOSEN: %@", info);
     
-    [info objectForKey:@"FPPickerControllerOriginalImage"];
+    //[info objectForKey:@"FPPickerControllerOriginalImage"];
 	
 	image.image = [info objectForKey:@"FPPickerControllerOriginalImage"];
-	remoteURL = [NSString stringWithFormat:@"%@/convert?dl=false&height=100&width=100&fit=crop", [info objectForKey:@"FPPickerControllerRemoteURL"]];
+	remoteURL = [info objectForKey:@"FPPickerControllerRemoteURL"];
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)FPPickerControllerDidCancel:(FPPickerController *)picker
 {
-    NSLog(@"FP Cancelled Open");
+    //NSLog(@"FP Cancelled Open");
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 

@@ -74,20 +74,23 @@ NSString * const FZSearchResponseNotification = @"FZSearchResponseNotification";
 	if (!query) {
 		query = @"";
 	}
+	
 	FZAppDelegate *delegate = (FZAppDelegate *)[[UIApplication sharedApplication] delegate];
-	if (!delegate.currentLocation)
-		
+	if (!delegate.currentLocation) {
 		return;
+	}
+	
 	NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/items.json?query=%@&lat=%f&lon&=%f",FZServerURLPrefix,[query stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding], delegate.currentLocation.coordinate.latitude,delegate.currentLocation.coordinate.longitude]];
 	
 	NSURLRequest *urlRequest = [NSURLRequest requestWithURL:requestURL];
+	
 	[NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 		if (!data) {
 			//todo handle error
 			NSLog(@"http error %@",error);
 			return;
 		}
-		NSError *jsonError;
+		NSError *jsonError =nil;
 		NSArray *queryData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
 		
 		if (!queryData) {
