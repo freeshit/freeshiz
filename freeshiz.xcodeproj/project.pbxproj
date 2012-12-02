@@ -12,6 +12,8 @@
 		4129107C166AD75800CF4B32 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4129107B166AD75800CF4B32 /* MobileCoreServices.framework */; };
 		4129107F166AD8B900CF4B32 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4129107E166AD8B900CF4B32 /* AssetsLibrary.framework */; };
 		41291085166AF6F700CF4B32 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41291084166AF6F700CF4B32 /* Firebase.framework */; };
+		4129108A166B058B00CF4B32 /* FZSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */; };
+		4129108B166B058B00CF4B32 /* FZSearchListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */; };
 		D95D5E26166AADBD004CFC30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E25166AADBD004CFC30 /* UIKit.framework */; };
 		D95D5E28166AADBD004CFC30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E27166AADBD004CFC30 /* Foundation.framework */; };
 		D95D5E2A166AADBD004CFC30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95D5E29166AADBD004CFC30 /* CoreGraphics.framework */; };
@@ -115,6 +117,10 @@
 		D95D5E72166AC931004CFC30 /* 180-stickynote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "180-stickynote.png"; sourceTree = "<group>"; };
 		D95D5E73166AC931004CFC30 /* 180-stickynote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "180-stickynote@2x.png"; sourceTree = "<group>"; };
 		D95D5E8E166ACA42004CFC30 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D95D5E90166AD3C4004CFC30 /* FZSearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchListViewController.h; sourceTree = "<group>"; };
+		D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchListViewController.m; sourceTree = "<group>"; };
+		D95D5E97166ADA05004CFC30 /* FZSearchListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchListViewCell.h; sourceTree = "<group>"; };
+		D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchListViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 		D95D5E2B166AADBD004CFC30 /* freeshiz */ = {
 			isa = PBXGroup;
 			children = (
+				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
 				D95D5E4E166AB0C3004CFC30 /* FZSearchTabController.h */,
 				D95D5E4F166AB0C3004CFC30 /* FZSearchTabController.m */,
 				D95D5E45166AAFBE004CFC30 /* FZSearchMapViewController.h */,
@@ -189,6 +196,10 @@
 				D95D5E54166ABC3B004CFC30 /* FZPostPictureViewController.m */,
 				D95D5E55166ABC3B004CFC30 /* FZPostPictureViewController.xib */,
 				D95D5E2C166AADBD004CFC30 /* Supporting Files */,
+				D95D5E90166AD3C4004CFC30 /* FZSearchListViewController.h */,
+				D95D5E91166AD3C5004CFC30 /* FZSearchListViewController.m */,
+				D95D5E97166ADA05004CFC30 /* FZSearchListViewCell.h */,
+				D95D5E98166ADA05004CFC30 /* FZSearchListViewCell.m */,
 			);
 			path = freeshiz;
 			sourceTree = "<group>";
@@ -328,6 +339,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4129108A166B058B00CF4B32 /* FZSearchListViewController.m in Sources */,
+				4129108B166B058B00CF4B32 /* FZSearchListViewCell.m in Sources */,
 				D95D5E32166AADBD004CFC30 /* main.m in Sources */,
 				D95D5E36166AADBD004CFC30 /* FZAppDelegate.m in Sources */,
 				D95D5E48166AAFBE004CFC30 /* FZSearchMapViewController.m in Sources */,
